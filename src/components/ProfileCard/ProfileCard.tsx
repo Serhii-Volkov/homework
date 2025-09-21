@@ -1,5 +1,3 @@
-
-
 import { useState } from "react"
 
 interface ProfileCardProps {
@@ -8,15 +6,15 @@ interface ProfileCardProps {
 }
 
 function ProfileCard({name, desc}: ProfileCardProps) {
-const [status, setStatus] = useState<boolean>(false)
+const [isOpen, setIsOpen] = useState<boolean>(false)
 
 const openProfile: string = 'Показать профиль'
 const closeProfile: string = 'Закрыть профиль'
 
   return (
     <>
-      {status === true ? <button onClick={() => setStatus(!status)}>{closeProfile}</button>: <button onClick={() => setStatus(!status)}>{openProfile}</button> }
-      {status === true ? <div> <h1>{name}</h1> <p>{desc}</p> </div> : null}
+      {isOpen === true ? <button onClick={() => setIsOpen(!isOpen)}>{closeProfile}</button>: <button onClick={() => setIsOpen(!isOpen)}>{openProfile}</button> }
+      {isOpen === true ? <div> <h1>{name}</h1> <p>{desc}</p> </div> : null}
     </>
   )
 }
