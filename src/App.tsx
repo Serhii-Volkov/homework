@@ -1,11 +1,13 @@
-import PhotoGallery from "./components/PhotoGallery"
+import TodoList from "./components/TodoList"
+
 
 function App() {
 
 
   return (
     <>
-      <PhotoGallery />
+     <h1>hello</h1>
+    <TodoList />
     </>
   )
 }
