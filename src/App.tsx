@@ -1,4 +1,6 @@
-import TodoList from "./components/TodoList"
+import { CommentsApp } from "./components/CommentsApp"
+import { SimpleForm } from "./components/SimpleForm"
+
 
 
 function App() {
@@ -7,7 +9,8 @@ function App() {
   return (
     <>
      <h1>hello</h1>
-    <TodoList />
+     <CommentsApp/>
+     <SimpleForm />
     </>
   )
 }
