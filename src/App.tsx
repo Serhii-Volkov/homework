@@ -1,6 +1,4 @@
-import { CommentsApp } from "./components/CommentsApp"
-import { SimpleForm } from "./components/SimpleForm"
-
+import { ProfileForm } from "./components/ProfileForm"
 
 
 function App() {
@@ -9,8 +7,7 @@ function App() {
   return (
     <>
      <h1>hello</h1>
-     <CommentsApp/>
-     <SimpleForm />
+     <ProfileForm />
     </>
   )
 }
