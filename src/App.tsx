@@ -1,5 +1,5 @@
-import { ProfileForm } from "./components/ProfileForm"
-
+import { ProfileNotes } from "./components/ProfileNotes"
+import { RegisterForm } from "./components/RegisterForm"
 
 function App() {
 
@@ -7,7 +7,8 @@ function App() {
   return (
     <>
      <h1>hello</h1>
-     <ProfileForm />
+     <RegisterForm/>
+     <ProfileNotes/>  
     </>
   )
 }
