@@ -1,5 +1,5 @@
-import { ProfileNotes } from "./components/ProfileNotes"
-import { RegisterForm } from "./components/RegisterForm"
+import {DeliveryPlaner} from "./components/DeliveryPlaner"
+import { SwapiPerson } from "./components/SwapiPerson"
 
 function App() {
 
@@ -7,8 +7,8 @@ function App() {
   return (
     <>
      <h1>hello</h1>
-     <RegisterForm/>
-     <ProfileNotes/>  
+     <DeliveryPlaner/>  
+     <SwapiPerson/>
     </>
   )
 }
