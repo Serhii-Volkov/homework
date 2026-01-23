@@ -1,4 +1,5 @@
-import {DeliveryPlaner} from "./components/DeliveryPlaner"
+
+import { AutoSaveMessage } from "./components/AutoSaveMessage"
 import { SwapiPerson } from "./components/SwapiPerson"
 
 function App() {
@@ -7,8 +8,8 @@ function App() {
   return (
     <>
      <h1>hello</h1>
-     <DeliveryPlaner/>  
      <SwapiPerson/>
+     <AutoSaveMessage/>
     </>
   )
 }

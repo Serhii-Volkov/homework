@@ -12,27 +12,42 @@
 //Пока грузится — текст: Loading…
 //Если ошибка — текст: Something went wrong
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
-
+type Person = {
+  name: string;
+  gender: string;
+  birth_year: string;
+};
 
 export function SwapiPerson() {
-    const [person , setPerson] = useState();
-    
-    useEffect(() => {
-        axios.get("https://swapi.py4e.com/api/people/1")
-        .then((response) => {
-            const firstPerson = response.data.results[0];
-            console.log(firstPerson);
-            setPerson(firstPerson);
-        })
-    }, [])
-    
-    return (
-        <div>
-            <h2>hello</h2>
-            <p>{person.name }</p>
-          
-        </div>
-    );
+  const [person, setPerson] = useState<Person | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("https://swapi.py4e.com/api/people/1")
+      .then((res) => {
+        setPerson(res.data);
+      })
+      .catch((e) => {
+        console.log("Something went wrong:", e);
+      })
+      .finally(() => {
+        setLoading(true);
+      });
+  }, []);
+
+  
+  if (!loading) return <p>Загрузка...</p>;
+  if (!person) return <p>Данные не найдены</p>;
+
+  return (
+    <div>
+      <h2>Персонаж SWAPI</h2>
+      <p>Имя: {person.name}</p>
+      <p>Пол: {person.gender}</p>
+      <p>Год рождения: {person.birth_year}</p>
+    </div>
+  );
 }
