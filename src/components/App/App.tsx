@@ -1,10 +1,13 @@
-import { NoteDraft } from "../NoteDraft"
+
+import { NextCharacter } from "../Nextcharacter"
+import { PokemonSearch } from "../PokemonSearch"
 function App() {
 
 
   return (
     <>
-     <NoteDraft/>
+     <NextCharacter/>
+     <PokemonSearch/>
     </>
   )
 }
