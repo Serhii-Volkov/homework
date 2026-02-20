@@ -1,14 +1,17 @@
-import { PlanetSearch } from "../PlanetSearch"
-import { PokemonSearch } from "../PokemonSearch"
+import { FoodPreferencesForm } from '../FoodPreferencesForm'
+import { DeliveryOptionsForm } from '../DeliveryOptionsForm'
+import { PokemonPlagination } from '../PokemonPlagination'
+
 function App() {
 
 
   return (
     <>
-     
-     <PokemonSearch/>
-     <PlanetSearch/>
-
+     <PokemonPlagination/>
+     <br />
+     <br />
+     <FoodPreferencesForm/>
+     <DeliveryOptionsForm/>
     </>
   )
 }
