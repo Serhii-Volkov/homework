@@ -1,3 +1,4 @@
+import ti
 .page {
 min-height: 100vh;
 padding: 24px;
@@ -72,4 +73,8 @@ font-size: 18px;
 margin-top: 12px;
 text-align: center;
 opacity: 0.8;
+}
+
+.constainer {
+    display: flex;
 }

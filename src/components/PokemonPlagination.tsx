@@ -3,6 +3,14 @@ import ReactPaginate from 'react-paginate';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { useState } from 'react';
 import axios from 'axios';
+import { ModalPokemon } from './ModalPokemon/ModalPokemon';
+
+//2. При клике на покемона открывайте модалку
+//3. В модалке показывайте детальную информацию о выбранном покемоне:
+//• имя
+//• id
+//• спрайт (фото покемона)
+//• рост и вес
 
 type PokemonItem = {
   name: string;
@@ -31,9 +39,18 @@ const fetchPokemon = async (page: number, limit: number) => {
 
 export  function PokemonPlagination() {
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [openIsModal, setOpenIsModal] = useState<boolean>(false)
+  const [selectedPokemon, setSelectedPokemon] = useState<PokemonItem | null>(null)
+
+   const openModal = (pokemon: PokemonItem) => {
+    setOpenIsModal(true)
+    setSelectedPokemon(pokemon)
+  }
+
+   const closeModal = () => setOpenIsModal(false)
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['pokemon', currentPage, per_page],
+    queryKey: ['allPokemons', currentPage, per_page],
     queryFn: () => fetchPokemon(currentPage, per_page),
     placeholderData: keepPreviousData,
   });
@@ -57,12 +74,16 @@ export  function PokemonPlagination() {
           {data?.results.length ? (
             <ul>
               {data.results.map(pokemon => (
-                <li key={pokemon.name}>{pokemon.name}</li>
+                <li key={pokemon.name} onClick={() => openModal(pokemon)}>{pokemon.name}</li>
               ))}
             </ul>
           ) : (
             <p>No Pokemon found.</p>
           )}
+
+          {openIsModal && selectedPokemon && <ModalPokemon closeModal={closeModal} pokemon={selectedPokemon}/>}
+          
+
 
           {totalPages > 1 && (
             <ReactPaginate
@@ -71,8 +92,11 @@ export  function PokemonPlagination() {
               marginPagesDisplayed={1}
               onPageChange={handlePageChange}
               forcePage={currentPage}
-              nextLabel="Next >"
-              previousLabel="< Previous"
+              nextLabel=">"
+              previousLabel="<"
+              containerClassName='container'
+              pageClassName='container-item'
+              activeClassName='active'
             />
           )}
         </>
