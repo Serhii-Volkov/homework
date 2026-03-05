@@ -1,6 +1,4 @@
-
-import { PokemonPlagination } from '../PokemonPlagination'
-import { FormValidation } from '../FormValidation'
+import { PostsServerPagination } from "../PostsServerPlagination"
 //2. При клике на покемона открывайте модалку
 //3. В модалке показывайте детальную информацию о выбранном покемоне:
 //• имя
@@ -12,8 +10,7 @@ function App() {
 
   return (
     <>
-     <PokemonPlagination/>
-     <FormValidation/>
+     <PostsServerPagination />
     </>
   )
 }
