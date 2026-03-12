@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .container {
     display: flex;
     gap: 15px;
